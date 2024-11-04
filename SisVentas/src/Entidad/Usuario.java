@@ -1,53 +1,62 @@
 package Entidad;
 
+import java.time.LocalDate;
+
 public class Usuario {
-    private int id_usuario;
-    private String id_rol;
+    private int usuarioId;
+    private String rolId;
     private String nombres;
     private String apellidos;
-    private String tipo_documento;
-    private String nro_documento;
+    private String tipoDocumento;
+    private String numeroDocumento;
     private String telefono;
-    private String email;
-    private String username;
-    private String password;
-    private int estado;
+    private String correoElectronico;
+    private String nombreUsuario;
+    private String contrasena;
+    private int estado; 
+    private LocalDate fechaCreacion; 
 
     public Usuario() {
+        this.fechaCreacion = LocalDate.now();
     }
 
-    public Usuario(int id_usuario, String id_rol, String nombres, String apellidos, String tipo_documento, String nro_documento, String telefono, String email, String username, String password, int estado) {
-        this.id_usuario = id_usuario;
-        this.id_rol = id_rol;
+    public Usuario(int usuarioId, String rolId, String nombres, String apellidos, String tipoDocumento, 
+                   String numeroDocumento, String telefono, String correoElectronico, String nombreUsuario, 
+                   String contrasena, int estado) {
+        this.usuarioId = usuarioId;
+        this.rolId = rolId;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.tipo_documento = tipo_documento;
-        this.nro_documento = nro_documento;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.telefono = telefono;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+        this.correoElectronico = correoElectronico;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
         this.estado = estado;
-    }
-    
-    public Usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+        this.fechaCreacion = LocalDate.now();
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public Usuario(int usuarioId) {
+        this.usuarioId = usuarioId;
+        this.fechaCreacion = LocalDate.now();
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    // Getters y Setters
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
-    public String getId_rol() {
-        return id_rol;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public void setId_rol(String id_rol) {
-        this.id_rol = id_rol;
+    public String getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
     }
 
     public String getNombres() {
@@ -66,20 +75,20 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public String getTipo_documento() {
-        return tipo_documento;
+    public String getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setTipo_documento(String tipo_documento) {
-        this.tipo_documento = tipo_documento;
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
-    public String getNro_documento() {
-        return nro_documento;
+    public String getNumeroDocumento() {
+        return numeroDocumento;
     }
 
-    public void setNro_documento(String nro_documento) {
-        this.nro_documento = nro_documento;
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public String getTelefono() {
@@ -90,28 +99,28 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public int getEstado() {
@@ -120,5 +129,38 @@ public class Usuario {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    // Funciones adicionales
+    public void activar() {
+        this.estado = 1;
+    }
+
+    public void desactivar() {
+        this.estado = 0;
+    }
+
+    public boolean esActivo() {
+        return this.estado == 1;
+    }
+
+    
+    public String toString() {
+        return "Usuario { " +
+                "ID: " + usuarioId +
+                ", Rol: '" + rolId + '\'' +
+                ", Nombres: '" + nombres + '\'' +
+                ", Apellidos: '" + apellidos + '\'' +
+                ", Documento: '" + tipoDocumento + " - " + numeroDocumento + '\'' +
+                ", Teléfono: '" + telefono + '\'' +
+                ", Email: '" + correoElectronico + '\'' +
+                ", Usuario: '" + nombreUsuario + '\'' +
+                ", Estado: " + (estado == 1 ? "Activo" : "Inactivo") +
+                ", Fecha de Creación: " + fechaCreacion +
+                " }";
     }
 }
