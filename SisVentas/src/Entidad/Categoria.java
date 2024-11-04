@@ -1,33 +1,33 @@
 package Entidad;
 
 public class Categoria {
-    int id_categoria;
-    String nombre_categoria;
-    int estado;
+    private int categoriaId;
+    private String nombre;
+    private int estado; 
 
-    public Categoria() {
-    }
+    public Categoria() {}
 
-    public Categoria(int id_categoria, String nombre_categoria, int estado) {
-        this.id_categoria = id_categoria;
-        this.nombre_categoria = nombre_categoria;
+    public Categoria(int categoriaId, String nombre, int estado) {
+        this.categoriaId = categoriaId;
+        this.nombre = nombre;
         this.estado = estado;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    // Getters y Setters
+    public int getCategoriaId() {
+        return categoriaId;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setCategoriaId(int categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
-    public String getNombre_categoria() {
-        return nombre_categoria;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre_categoria(String nombre_categoria) {
-        this.nombre_categoria = nombre_categoria;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getEstado() {
@@ -38,5 +38,26 @@ public class Categoria {
         this.estado = estado;
     }
 
+
+    public void activar() {
+        this.estado = 1;
+    }
+
+    public void desactivar() {
+        this.estado = 0;
+    }
+
+    public boolean esActiva() {
+        return this.estado == 1;
+    }
+
     
+    public String toString() {
+        return "Categoria { " +
+                "ID: " + categoriaId +
+                ", Nombre: '" + nombre + '\'' +
+                ", Estado: " + (estado == 1 ? "Activo" : "Inactivo") +
+                " }";
+    }
 }
+
