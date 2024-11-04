@@ -1,59 +1,60 @@
 package Entidad;
 
 public class Cliente {
-    int id_cliente;
-    String nombres_apellidos;
-    String tipo_documento;
-    String nro_documento;
-    String direccion;
-    String telefono;
-    String email;
-    int estado;
+    private int clienteId;
+    private String nombreCompleto;
+    private String tipoDocumento;
+    private String numeroDocumento;
+    private String direccion;
+    private String telefono;
+    private String correoElectronico;
+    private int estado; 
 
-    public Cliente() {
-    }
+    public Cliente() {}
 
-    public Cliente(int id_cliente, String nombres_apellidos, String tipo_documento, String nro_documento, String direccion, String telefono, String email, int estado) {
-        this.id_cliente = id_cliente;
-        this.nombres_apellidos = nombres_apellidos;
-        this.tipo_documento = tipo_documento;
-        this.nro_documento = nro_documento;
+    public Cliente(int clienteId, String nombreCompleto, String tipoDocumento, String numeroDocumento, 
+                   String direccion, String telefono, String correoElectronico, int estado) {
+        this.clienteId = clienteId;
+        this.nombreCompleto = nombreCompleto;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.email = email;
+        this.correoElectronico = correoElectronico;
         this.estado = estado;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    // Getters y Setters
+    public int getClienteId() {
+        return clienteId;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
     }
 
-    public String getNombres_apellidos() {
-        return nombres_apellidos;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombres_apellidos(String nombres_apellidos) {
-        this.nombres_apellidos = nombres_apellidos;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
-    public String getTipo_documento() {
-        return tipo_documento;
+    public String getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setTipo_documento(String tipo_documento) {
-        this.tipo_documento = tipo_documento;
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
-    public String getNro_documento() {
-        return nro_documento;
+    public String getNumeroDocumento() {
+        return numeroDocumento;
     }
 
-    public void setNro_documento(String nro_documento) {
-        this.nro_documento = nro_documento;
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public String getDireccion() {
@@ -72,12 +73,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public int getEstado() {
@@ -89,4 +90,29 @@ public class Cliente {
     }
 
     
+    public void activar() {
+        this.estado = 1;
+    }
+
+    public void desactivar() {
+        this.estado = 0;
+    }
+
+    public boolean esActivo() {
+        return this.estado == 1;
+    }
+
+    
+    public String toString() {
+        return "Cliente { " +
+                "ID: " + clienteId +
+                ", Nombre Completo: '" + nombreCompleto + '\'' +
+                ", Documento: '" + tipoDocumento + " - " + numeroDocumento + '\'' +
+                ", Dirección: '" + direccion + '\'' +
+                ", Teléfono: '" + telefono + '\'' +
+                ", Correo Electrónico: '" + correoElectronico + '\'' +
+                ", Estado: " + (estado == 1 ? "Activo" : "Inactivo") +
+                " }";
+    }
 }
+
